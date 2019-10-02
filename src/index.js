@@ -1,10 +1,13 @@
 const otplib = require("otplib");
 
 let previousSecret;
-
+otplib.authenticator.options = {
+  step: 30,
+  window: 2
+}
 module.exports = (args) => {
   if(typeof args === 'string' && args) {
-    previousSecret = otpSecret;
+    previousSecret = args;
   } else if(typeof args === 'object') {
     previousSecret = args.secret;
     if(args.options) {
