@@ -19,6 +19,8 @@ module.exports = (args) => {
     throw new Error("No secret has been provided.");
   }
 
+  throw new Error(JSON.stringify(otplib.authenticator.options))
+
   const token = otplib.authenticator.generate(secret)
   otplib.authenticator.check(token, secret)
   return token
