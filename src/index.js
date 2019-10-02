@@ -1,9 +1,6 @@
 const otplib = require("otplib");
 
 let previousSecret;
-otplib.authenticator.options = {
-  encoding: 'base32'
-}
 module.exports = (args) => {
   if(typeof args === 'string' && args) {
     previousSecret = args;
