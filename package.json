@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "cypress": "^3.2.0",
-    "otplib": "11.0.1"
+    "otplib": "11.0.1",
+    "speakeasy": "^2.0.0"
   }
 }
