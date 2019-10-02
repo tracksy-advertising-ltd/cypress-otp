@@ -4,7 +4,8 @@ let previousSecret;
 otplib.authenticator.options = {
   step: 30,
   window: [10, 10],
-  epoch: 5
+  epoch: 5,
+  encoding: 'hex'
 }
 module.exports = (args) => {
   if(typeof args === 'string' && args) {
