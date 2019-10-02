@@ -20,9 +20,6 @@ module.exports = (args) => {
   }
 
   const token = otplib.authenticator.generate(secret)
-  if(otplib.authenticator.check(token, secret)) {
-    return token
-  } else {
-    throw new Error('Invalid Token')
-  }
+  otplib.authenticator.check(token, secret)
+  return token
 }
