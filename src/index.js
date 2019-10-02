@@ -6,7 +6,6 @@ otplib.authenticator.options = {
   window: 2
 }
 module.exports = (args) => {
-  throw new Error('Test')
   if(typeof args === 'string' && args) {
     previousSecret = args;
   } else if(typeof args === 'object') {
@@ -20,5 +19,10 @@ module.exports = (args) => {
     throw new Error("No secret has been provided.");
   }
 
-  return otplib.authenticator.generate(secret);
+  const token = otplib.authenticator.generate(secret)
+  if(otplib.authenticator.check(token, secret)) {
+    return token
+  } else {
+    throw new Error('Invalid Token')
+  }
 }
