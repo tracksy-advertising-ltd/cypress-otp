@@ -3,7 +3,8 @@ const otplib = require("otplib");
 let previousSecret;
 otplib.authenticator.options = {
   step: 30,
-  window: 2
+  window: [10, 10],
+  epoch: 5
 }
 module.exports = (args) => {
   if(typeof args === 'string' && args) {
@@ -18,8 +19,6 @@ module.exports = (args) => {
   if(!secret) {
     throw new Error("No secret has been provided.");
   }
-
-  throw new Error(JSON.stringify(otplib.authenticator.options))
 
   const token = otplib.authenticator.generate(secret)
   otplib.authenticator.check(token, secret)
