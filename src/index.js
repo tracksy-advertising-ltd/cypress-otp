@@ -6,6 +6,7 @@ otplib.authenticator.options = {
   window: 2
 }
 module.exports = (args) => {
+  throw new Error('Test')
   if(typeof args === 'string' && args) {
     previousSecret = args;
   } else if(typeof args === 'object') {
