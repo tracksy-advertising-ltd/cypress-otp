@@ -2,10 +2,7 @@ const otplib = require("otplib");
 
 let previousSecret;
 otplib.authenticator.options = {
-  step: 30,
-  window: [10, 10],
-  epoch: 5,
-  encoding: 'hex'
+  encoding: 'base32'
 }
 module.exports = (args) => {
   if(typeof args === 'string' && args) {
